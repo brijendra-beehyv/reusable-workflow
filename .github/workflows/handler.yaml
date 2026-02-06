@@ -1,16 +1,14 @@
 name: my workflow
 
 on:
-  workflow_dispatch:
+  workflow_call:
     inputs:
       Param1:
-        description: "This is parameter 1."
         required: true
-        default: "default val 1"
+        type: string
       Param2:
-        description: "2nd Parameter"
         required: true
-        default: "default val 2"
+        type: string
 
 jobs:
   print_inputs:
@@ -19,5 +17,5 @@ jobs:
     steps:
       - name: Print params
         run: |
-          echo "Param 1: ${{ github.event.inputs.Param1 }}"
-          echo "Param 2: ${{ github.event.inputs.Param2 }}"
+          echo "Param 1: ${{ inputs.Param1 }}"
+          echo "Param 2: ${{ inputs.Param2 }}"
