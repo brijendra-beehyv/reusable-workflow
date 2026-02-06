@@ -1,0 +1,17 @@
+name: This Workflow Caller
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  call_workflow:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: call my workflow
+        uses: brijendra-beehyv/reusable-workflow/.github/workflows/handler.yaml@main
+        with:
+          Param1: parameter 1
+          Param2: parameter 2
+
